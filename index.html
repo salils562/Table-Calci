@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>
+        TableCalculator
+    </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+        .main{
+            display: flex;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .it{
+            margin: 0px 10px;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 5px solid black;
+            border-radius: 10px;
+            width: 20%;
+            padding: 10px 10px;
+        }
+        .items button{
+            width: 50px;
+            height: 50px;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 15px;
+            border: 3px solid rgb(20, 221, 228);
+            margin: 5px 5px;
+            cursor: pointer;
+        }
+        .intro p{
+         margin: 0px 0px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .table{
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: 2px solid blue;
+            border-radius: 10px;
+            width: 50%;
+        }   
+        @media  screen and (max-width:700px){
+            .main{
+                flex-direction: column;
+            }
+            .container , .table{
+                margin-left: auto;
+                margin-right: auto;
+                width: auto;
+                margin-top: 10px;
+            }
+            .items{
+                display: flex;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <p style="font-size: 2rem; color:rgb(4, 8, 56)">MADE BY</p>
+        <p style="font-size: 1.5rem; color: green">SALIL SHARMA</p>
+    </div>
+    <section class="main">
+    <section class="container it">
+        <div class="items">
+            <button onclick="tabell(1)">1</button>
+            <button onclick="tabell(2)">2</button>
+            <button onclick="tabell(3)">3</button>
+        </div>
+        <div class="items">
+            <button onclick="tabell(4)">4</button>
+            <button onclick="tabell(5)">5</button>
+            <button onclick="tabell(6)">6</button>
+        </div>
+        <div class="items">
+            <button onclick="tabell(7)">7</button>
+            <button onclick="tabell(8)">8</button>
+            <button onclick="tabell(9)">9</button>
+        </div>
+    </section>
+    <section class="table it">
+    <div id="item-1"></div>
+    <div id="item-2"></div>
+    <div id="item-3"></div>
+    <div id="item-4"></div>
+    <div id="item-5"></div>
+    <div id="item-6"></div>
+    <div id="item-7"></div>
+    <div id="item-8"></div>
+    <div id="item-9"></div>
+    <div id="item-10"></div>
+    </section>
+    </section>
+    <script>
+    function tabell(num){
+     let i;
+     for(i=1;i<11;i++){
+     let str=`item-${i}`;
+     let element= document.getElementById(str);
+     element.innerText=`${num} x ${i} = ${num*i}`;
+     }   
+    }
+    </script>
+</body>
+</html>
