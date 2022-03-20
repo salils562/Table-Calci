@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple calculator</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+    .container{
+        margin-top: 20px;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        background-color: rgb(206, 206, 206);
+        border-radius: 20px;
+    }
+    .items{
+        margin: 5px;
+    }
+    input{
+        width: 200px;
+        height: 30px;
+        border-radius: 10px;
+        padding-left: 5px;
+    }
+    .items button{
+        font-weight: bold;
+        font-size: 1.5rem;
+        width: 40px;
+        background-color: aqua;
+        border-radius: 10px;
+    }
+    .intro p{
+         margin: 0px 0px;
+         font-weight: bold;
+         text-align: center;
+        }
+    @media screen and (max-width: 700px){
+        .container{
+            width: auto;
+        }
+        input{
+            width: 250px;
+            height: 40px;
+            margin-bottom: 20px;
+        }
+        .items button{
+            width: 60px;
+        }
+    }
+</style>
+<body>
+    <div class="intro">
+        <p style="font-size: 2rem; color:rgb(4, 8, 56)">MADE BY</p>
+        <p style="font-size: 1.5rem; color: green">SALIL SHARMA</p>
+    </div>
+    <section class="container">
+        <input type="text" id="inputt">
+        <div class="items">
+            <button>(</button>
+            <button>)</button>
+            <button>C</button>
+            <button>%</button>
+        </div>
+        <div class="items">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>X</button>
+        </div>
+        <div class="items">
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        </div>
+        <div class="items">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>+</button>
+        </div>
+        <div class="items">
+        <button>0</button>
+        <button>.</button>
+        <button>/</button>
+        <button>=</button>
+        </div>
+    </section>
+    <script>
+        let button=document.querySelectorAll('button');
+        let screen = document.getElementById('inputt');
+        let screenValue="";
+        for(item of button){
+            item.addEventListener('click',(e)=>{
+            let buttonText=e.target.innerText;
+              
+            if(buttonText=='X'){
+                buttonText = '*';
+                screenValue += buttonText;
+                screen.value = screenValue;
+            }
+            else if(buttonText=='C'){
+                screen.value = "";
+                screenValue="";
+            }
+            else if(buttonText == '='){
+                screen.value = eval(screenValue);
+            }
+            else {
+            screenValue += buttonText;    
+            screen.value = screenValue;  
+           }
+        });
+        }
+    </script>
+</body>
+</html>
