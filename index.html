@@ -22,6 +22,13 @@
         .it{
             margin: 0px 10px;
         }
+        input{
+            font-size: 1.5rem;
+            width: 190px;
+            height: 30px;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
         .container{
             display: flex;
             flex-direction: column;
@@ -29,7 +36,7 @@
             border: 5px solid black;
             border-radius: 10px;
             width: 20%;
-            height: 200px;
+            height: 280px;
             padding: 10px 10px;
         }
         .items button{
@@ -79,20 +86,26 @@
     </div>
     <section class="main">
     <section class="container it">
+        <input type="text" id="inputt">
         <div class="items">
-            <button onclick="tabell(1)">1</button>
-            <button onclick="tabell(2)">2</button>
-            <button onclick="tabell(3)">3</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
         </div>
         <div class="items">
-            <button onclick="tabell(4)">4</button>
-            <button onclick="tabell(5)">5</button>
-            <button onclick="tabell(6)">6</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
         </div>
         <div class="items">
-            <button onclick="tabell(7)">7</button>
-            <button onclick="tabell(8)">8</button>
-            <button onclick="tabell(9)">9</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+        </div>
+        <div class="items">
+            <button>0</button>
+            <button>C</button>
+            <button>=</button>
         </div>
     </section>
     <section class="table it">
@@ -114,14 +127,35 @@
          <p>To use simple calculator</p>
     </div>
     <script>
-    function tabell(num){
-     let i;
-     for(i=1;i<11;i++){
-     let str=`item-${i}`;
-     let element= document.getElementById(str);
-     element.innerText=`${num} x ${i} = ${num*i}`;
-     }   
-    }
+    buttons=document.querySelectorAll('button');
+    screen=document.getElementById('inputt');
+    let screenText="";
+    for(item of buttons){
+        item.addEventListener('click',(e)=>{
+        let buttonText=e.target.innerText;
+        if(buttonText=='C'){
+            screenText="";
+            screen.value=screenText;
+        }
+        else if(buttonText=='='){
+            let num=screenText;
+            if(num==""){
+                num=0;
+            }
+            let i;
+            for(i=1;i<11;i++){
+            let str=`item-${i}`;
+            let element= document.getElementById(str);
+             element.innerText=`${num} x ${i} = ${num*i}`;
+            } 
+        }
+        else{
+            screenText+=buttonText;
+            screen.value=screenText;
+        }
+
+        });
+    }    
     </script>
 </body>
 </html>
